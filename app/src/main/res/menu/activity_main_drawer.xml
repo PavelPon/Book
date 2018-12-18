@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_my_book_gallery"
+            android:icon="@drawable/ic_book_gallery_view"
+            android:title="@string/my_book_gallery_view" />
+        <item
+            android:id="@+id/nav_live_books"
+            android:icon="@drawable/ic_live_book_view"
+            android:title="@string/live_books_view"/>
+        <item
+            android:id="@+id/nav_open_new_file_view"
+            android:icon="@drawable/ic_open_new_file_view"
+            android:title="@string/open_new_file_view" />
+        <item
+            android:id="@+id/nav_search_book_view"
+            android:icon="@drawable/ic_search_book_view"
+            android:title="@string/search_book_view" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item>
+
+</menu>

@@ -1,6 +1,7 @@
 package com.example.pavelponomarev.book;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -19,11 +20,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RecyclerViewAdapterBook extends RecyclerView.Adapter<RecyclerViewAdapterBook.ViewHolder> {
     private static final String TAG = "RecyclerViewAdapterBook";
-    private ArrayList<String> mBookName = new ArrayList<>();
+    private ArrayList<FindFiles> mBookName = new ArrayList<>();
     private ArrayList<String> mImageBook = new ArrayList<>();
     private Context mContext;
 
-    public RecyclerViewAdapterBook(Context context, ArrayList<String> bookName, ArrayList<String> imageBook) {
+    public RecyclerViewAdapterBook(Context context, ArrayList<FindFiles> bookName, ArrayList<String> imageBook) {
         mBookName = bookName;
         mImageBook = imageBook;
         mContext = context;
@@ -42,22 +43,28 @@ public class RecyclerViewAdapterBook extends RecyclerView.Adapter<RecyclerViewAd
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         Log.d(TAG, "onBindViewHolder: called");
+        final FindFiles findNewFile = mBookName.get(position);
         Glide.with(mContext)
                 .asBitmap()
                 .load(mImageBook.get(position))
                 .into(holder.imageBook);
-        holder.nameBook.setText(mBookName.get(position));
+        holder.nameBook.setText(findNewFile.getName());
         holder.bookParentLayout.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
                 Log.d(TAG,"OnClick: clicked on: " +mBookName.get(position));
-                Toast.makeText(mContext,mBookName.get(position),Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, (CharSequence) mBookName.get(position),Toast.LENGTH_SHORT).show();
+                openFindFiles(findNewFile.getPath());
             }
         } );
 
-
-
+    }
+    //open file
+    private void openFindFiles(String path) {
+        Intent intent = new Intent(mContext, PdfActivity.class);
+        intent.putExtra("PATH", path);
+        mContext.startActivity(intent);
     }
 
     @Override

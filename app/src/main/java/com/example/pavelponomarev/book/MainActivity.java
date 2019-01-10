@@ -1,5 +1,5 @@
 package com.example.pavelponomarev.book;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override
@@ -72,6 +74,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
+
             return true;
         }
 
@@ -89,12 +92,12 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_live_books) {
 
         } else if (id == R.id.nav_open_new_file_view) {
-
+            Toast.makeText(MainActivity.this,"hi new file",Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(MainActivity.this,ActivityFileFind.class);
+            startActivity(intent);
         } else if (id == R.id.nav_search_book_view) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_setting) {
 
         }
 
@@ -103,53 +106,23 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private ArrayList<String> mNamesBook = new ArrayList<>();
-    private ArrayList<String> mImageBookURL = new ArrayList<>();
+    private ArrayList<FindFiles> mNamesBook = new ArrayList<>();
+    private ArrayList<String> mImageBookFormat = new ArrayList<>();
 
     private void inItImageBitmap() {
         Log.d(TAG, "inItImageBitmap: preparing bitmaps");
-
-        mImageBookURL.add("https://s0.rbk.ru/v6_top_pics/resized/1180xH/media/img/6/21/754598826668216.jpeg");
-        mNamesBook.add("Book1");
-
-
-        mImageBookURL.add("https://s0.rbk.ru/v6_top_pics/resized/1180xH/media/img/6/21/754598826668216.jpeg");
-        mNamesBook.add("Book2");
-
-        mImageBookURL.add("https://s0.rbk.ru/v6_top_pics/resized/1180xH/media/img/6/21/754598826668216.jpeg");
-        mNamesBook.add("Book3");
-
-        mImageBookURL.add("https://s0.rbk.ru/v6_top_pics/resized/1180xH/media/img/6/21/754598826668216.jpeg");
-        mNamesBook.add("Book4");
-
-        mImageBookURL.add("https://s0.rbk.ru/v6_top_pics/resized/1180xH/media/img/6/21/754598826668216.jpeg");
-        mNamesBook.add("Book5");
-
-        mImageBookURL.add("https://s0.rbk.ru/v6_top_pics/resized/1180xH/media/img/6/21/754598826668216.jpeg");
-        mNamesBook.add("Book6");
-
-        mImageBookURL.add("https://s0.rbk.ru/v6_top_pics/resized/1180xH/media/img/6/21/754598826668216.jpeg");
-        mNamesBook.add("Book7");
-
-        mImageBookURL.add("https://s0.rbk.ru/v6_top_pics/resized/1180xH/media/img/6/21/754598826668216.jpeg");
-        mNamesBook.add("Book8");
-
-        mImageBookURL.add("https://s0.rbk.ru/v6_top_pics/resized/1180xH/media/img/6/21/754598826668216.jpeg");
-        mNamesBook.add("Book9");
-
-        mImageBookURL.add("https://s0.rbk.ru/v6_top_pics/resized/1180xH/media/img/6/21/754598826668216.jpeg");
-        mNamesBook.add("Book10");
-
-        mImageBookURL.add("https://s0.rbk.ru/v6_top_pics/resized/1180xH/media/img/6/21/754598826668216.jpeg");
-        mNamesBook.add("Book11");
-
+//if(mNamesBook.getPath().endsWith("pdf")) {
+//    mImageBookFormat.add("http://image.flaticon.com/icons/png/128/179/179483.png");
+//}else if(mNamesBook.getPath().endsWith("epub")) {
+//    mImageBookFormat.add("http://aux.iconspalace.com/uploads/file-epub-icon-256.png");
+//}
         inItRecyclerView();
     }
 
     private void inItRecyclerView() {
         Log.d(TAG, "inItRecyclerView: init recycler_view.");
         RecyclerView recyclerView = findViewById(R.id.recycler_view_books);
-        RecyclerViewAdapterBook adapterBook = new RecyclerViewAdapterBook(this, mNamesBook, mImageBookURL);
+        RecyclerViewAdapterBook adapterBook = new RecyclerViewAdapterBook(this, mNamesBook, mImageBookFormat);
         recyclerView.setAdapter(adapterBook);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

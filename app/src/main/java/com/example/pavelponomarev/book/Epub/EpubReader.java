@@ -53,7 +53,7 @@ public class EpubReader extends AppCompatActivity implements PageFragment.OnFrag
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_epub_reader);
-        Toast.makeText(this, "Открыт нужный  файл", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Открыт нужный  файл", Toast.LENGTH_SHORT).show();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

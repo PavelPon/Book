@@ -12,8 +12,12 @@
     <string name="search_book_view">Поиск в галерее</string>
     <string name="nav_setting">Настройки</string>
     <string name="nav_additionally">Дополнительно</string>
+    <string name="search_in_pages">Поиск страницы</string>
+    <string name="next_pg">Далее</string>
+    <string name="prev_pg">Назад</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_epub_reader">EpubReader</string>
 
 </resources>

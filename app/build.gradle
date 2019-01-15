@@ -18,6 +18,8 @@ android {
     }
 }
 repositories {
+    jcenter()
+    maven { url "https://jitpack.io" }
     maven {
         url 'https://github.com/psiegman/mvn-repo/raw/master/releases'
     }
@@ -50,4 +52,9 @@ dependencies {
     implementation 'com.android.support:cardview-v7:28.0.0'
     // PDF
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+    //folio
+    //implementation "com.folioreader:folioreader:0.5.4"
+
+    //EpubParser
+    implementation 'com.github.mertakdut:EpubParser:1.0.95'
 }

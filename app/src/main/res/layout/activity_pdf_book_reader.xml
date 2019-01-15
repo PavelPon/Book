@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
 
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,17 +9,48 @@
     android:paddingTop="8dp"
     android:paddingRight="8dp"
     android:paddingBottom="8dp"
-    tools:context=".PdfActivity">
-
-    <com.github.barteksc.pdfviewer.PDFView
-        android:id="@+id/pdf_view"
-        android:layout_width="match_parent"
+    tools:context=".PDF.PdfActivity"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_weight="0.9"
         android:layout_height="match_parent"
-        android:saveEnabled="true"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
-        android:scrollbars="vertical">
+        android:orientation="horizontal"
+        android:layout_width="match_parent">
+        <com.github.barteksc.pdfviewer.PDFView
+            android:id="@+id/pdf_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="8dp"
+            android:saveEnabled="true">
 
-    </com.github.barteksc.pdfviewer.PDFView>
+        </com.github.barteksc.pdfviewer.PDFView>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="1dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/button_prev"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="@string/prev_pg"
+            android:textSize="16dp"
+            android:paddingBottom="8dp"
+            android:layout_width="match_parent" />
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/button_next"
+            android:layout_height="wrap_content"
+            android:text="@string/next_pg"
+            android:textSize="16dp"
+            android:paddingBottom="8dp"
+            android:layout_width="match_parent" />
+    </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>
